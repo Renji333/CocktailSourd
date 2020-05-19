@@ -25,6 +25,26 @@ class Detail extends React.Component {
 
     }
 
+    toggleFav() {
+
+        let fav = '';
+
+        switch (this.state.data) {
+            case false:
+                fav = true;
+                break;
+            default:
+                fav = false;
+                break;
+        }
+
+        this.props.dispatch({
+            type: "SET_FAV",
+            value: this.state.data
+        });
+
+    }
+
     getDataFromApi() {
         let _this = this;
         let id  = this.props.route.params.id;
